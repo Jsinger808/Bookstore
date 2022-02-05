@@ -23,6 +23,7 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Price</th>
+                <th>Hardcover</th>
                 <th>Actions</th>
             </tr>
             <c:forEach var="book" items="${listBook}">
@@ -31,6 +32,7 @@
                     <td><c:out value="${book.title}" /></td>
                     <td><c:out value="${book.author}" /></td>
                     <td><c:out value="${book.price}" /></td>
+                    <td><c:out value="${book.hardcover}" /></td>
                     <td>
                         <a href="/Bookstore/edit?id=<c:out value='${book.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;

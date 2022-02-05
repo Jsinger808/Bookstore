@@ -89,24 +89,39 @@ public class ControllerServlet extends HttpServlet {
     }
  
     private void insertBook(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, EmptyStringException {
         String title = request.getParameter("title");
         String author = request.getParameter("author");
         float price = Float.parseFloat(request.getParameter("price"));
+        boolean hardcover;
+        if (request.getParameter("hardcover") == null) {
+            hardcover = false;
+        }
+        else {
+            hardcover = true;
+        }
+
  
-        Book newBook = new Book(title, author, price);
+        Book newBook = new Book(title, author, price, hardcover);
         bookDAO.insertBook(newBook);
         response.sendRedirect("list");
     }
  
     private void updateBook(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, EmptyStringException {
         int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
         String author = request.getParameter("author");
         float price = Float.parseFloat(request.getParameter("price"));
+        boolean hardcover;
+        if (request.getParameter("hardcover") == null) {
+            hardcover = false;
+        }
+        else {
+            hardcover = true;
+        }
  
-        Book book = new Book(id, title, author, price);
+        Book book = new Book(id, title, author, price, hardcover);
         bookDAO.updateBook(book);
         response.sendRedirect("list");
     }
