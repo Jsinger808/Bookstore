@@ -1,6 +1,6 @@
 
 # Bookstore Web App 
-
+First Java CRUD project
 CRUD Bookstore web app that uses Servlets + JDBC + MySQL + JSP.     
 Based off of this tutorial: https://www.codejava.net/coding/jsp-servlet-jdbc-mysql-create-read-update-delete-crud-example
 
